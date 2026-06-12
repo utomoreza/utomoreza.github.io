@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freelance Services — Reza Dwi Utomo</title>
+  <meta name="description" content="Custom websites, AI/ML models, data dashboards, and intelligent chatbots for small and medium businesses. Built end-to-end by an AWS-certified ML engineer.">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/portfolio.css">
+
+  <style>
+    /* ── Services hero band ──────────────────────────────────── */
+    .svc-hero-band {
+      padding: 64px var(--gutter) 56px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .svc-hero-band .pre {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .svc-hero-band .pre::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .svc-hero-band h1 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(48px, 9vw, 144px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin: 0 0 28px;
+      text-transform: uppercase;
+    }
+    .svc-hero-band h1 .stroke {
+      -webkit-text-stroke: 2px var(--ink);
+      color: transparent;
+    }
+    .svc-hero-band h1 .accent { color: var(--accent); }
+    .svc-hero-band .lede {
+      font-size: clamp(17px, 1.6vw, 21px);
+      line-height: 1.45;
+      max-width: 56ch;
+      color: var(--ink-2);
+      margin: 0 0 32px;
+    }
+    .svc-hero-band .ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .svc-hero-band .ctas a {
+      padding: 14px 22px;
+      border: 1px solid var(--ink);
+      transition: background 200ms, color 200ms;
+    }
+    .svc-hero-band .ctas a.primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .svc-hero-band .ctas a.primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-fg);
+    }
+    .svc-hero-band .ctas a.ghost:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .svc-hero-band .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--ink);
+      margin-top: 40px;
+      font-family: var(--mono);
+    }
+    .svc-hero-band .hero-stats .stat {
+      padding: 18px 20px;
+      border-right: 1px solid var(--rule);
+    }
+    .svc-hero-band .hero-stats .stat:last-child { border-right: 0; }
+    .svc-hero-band .hero-stats .num {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .svc-hero-band .hero-stats .num .accent { color: var(--accent); }
+    .svc-hero-band .hero-stats .lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    @media (max-width: 720px) {
+      .svc-hero-band .hero-stats { grid-template-columns: 1fr; }
+      .svc-hero-band .hero-stats .stat { border-right: 0; border-bottom: 1px solid var(--rule); }
+      .svc-hero-band .hero-stats .stat:last-child { border-bottom: 0; }
+    }
+
+    /* ── Offerings list ──────────────────────────────────────── */
+    .svc-list { border-top: 1px solid var(--ink); }
+    .svc-list-row {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+      cursor: pointer;
+      transition: background 200ms, padding 200ms, color 200ms;
+      position: relative;
+      color: var(--ink);
+    }
+    .svc-list-row:hover {
+      background: var(--ink);
+      color: var(--bg);
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .svc-list-row:hover .sl-num { color: var(--accent); }
+    .svc-list-row:hover .sl-meta,
+    .svc-list-row:hover .sl-desc,
+    .svc-list-row:hover .sl-deliver { color: rgba(255,255,255,0.75); }
+    .svc-list-row:hover .sl-deliver b { color: rgba(255,255,255,0.95); }
+    .svc-list-row:hover .sl-arrow {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-fg);
+    }
+    .sl-num {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      padding-top: 10px;
+    }
+    .sl-main h3 {
+      font-family: var(--display);
+      font-size: clamp(26px, 3.4vw, 46px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+    .sl-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .sl-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 64ch;
+      color: var(--ink-2);
+      margin: 0 0 14px;
+    }
+    .sl-deliver {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .sl-deliver b { color: var(--ink); font-weight: 600; }
+    .sl-arrow {
+      width: 56px;
+      height: 56px;
+      border: 1px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 22px;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    @media (max-width: 800px) {
+      .svc-list-row { grid-template-columns: 60px 1fr; gap: 16px; }
+      .sl-arrow { display: none; }
+    }
+
+    /* ── Process grid ────────────────────────────────────────── */
+    .proc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--ink);
+    }
+    .proc-step {
+      padding: 28px 22px 32px;
+      border-right: 1px solid var(--ink);
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      transition: background 200ms;
+    }
+    .proc-step:last-child { border-right: 0; }
+    .proc-step:hover { background: rgba(0,0,0,0.03); }
+    .proc-step .pn {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 96px;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .proc-step h4 {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 10px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .proc-step p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+      flex: 1;
+    }
+    .proc-step .pmeta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }
+    @media (max-width: 900px) {
+      .proc-grid { grid-template-columns: repeat(2, 1fr); }
+      .proc-step:nth-child(2) { border-right: 0; }
+      .proc-step:nth-child(-n+2) { border-bottom: 1px solid var(--ink); }
+    }
+    @media (max-width: 540px) {
+      .proc-grid { grid-template-columns: 1fr; }
+      .proc-step { border-right: 0; border-bottom: 1px solid var(--ink); }
+      .proc-step:last-child { border-bottom: 0; }
+    }
+
+    /* ── Pricing strip ───────────────────────────────────────── */
+    .pricing-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--ink);
+    }
+    .price {
+      padding: 28px 22px;
+      border-right: 1px solid var(--ink);
+      transition: background 200ms;
+    }
+    .price:last-child { border-right: 0; }
+    .price.feature { background: var(--ink); color: var(--bg); }
+    .price .ptag {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .price.feature .ptag { color: var(--accent); }
+    .price h4 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+    .price .pwhen {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .price.feature .pwhen { color: rgba(255,255,255,0.6); }
+    .price ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .price ul li {
+      padding-left: 16px;
+      position: relative;
+      color: var(--ink-2);
+    }
+    .price.feature ul li { color: rgba(255,255,255,0.8); }
+    .price ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+    @media (max-width: 800px) {
+      .pricing-strip { grid-template-columns: 1fr; }
+      .price { border-right: 0; border-bottom: 1px solid var(--ink); }
+      .price:last-child { border-bottom: 0; }
+    }
+
+    /* ── Why-me grid ─────────────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--ink);
+    }
+    .why-item {
+      padding: 24px 20px;
+      border-right: 1px solid var(--rule);
+    }
+    .why-item:last-child { border-right: 0; }
+    .why-item .why-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .why-item h5 {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+    .why-item p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-item { border-bottom: 1px solid var(--rule); }
+      .why-item:nth-child(2n) { border-right: 0; }
+      .why-item:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+    @media (max-width: 540px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-item { border-right: 0; }
+    }
+
+    /* ── FAQ ─────────────────────────────────────────────────── */
+    .faq { border-top: 1px solid var(--ink); }
+    .faq details {
+      border-bottom: 1px solid var(--rule);
+      padding: 22px 0;
+      transition: padding 200ms;
+    }
+    .faq details[open] { padding: 26px 0; }
+    .faq summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 60px 1fr 32px;
+      gap: 24px;
+      align-items: center;
+      font-family: var(--display);
+      font-size: clamp(17px, 1.7vw, 23px);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      transition: color 200ms;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .qn {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .faq summary .plus {
+      font-family: var(--mono);
+      font-size: 22px;
+      text-align: right;
+      transition: transform 200ms;
+    }
+    .faq details[open] summary .plus { transform: rotate(45deg); color: var(--accent); }
+    .faq summary:hover { color: var(--accent); }
+    .faq .ans {
+      padding: 16px 0 0 84px;
+      max-width: 70ch;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-2);
+    }
+    @media (max-width: 720px) {
+      .faq summary { grid-template-columns: 1fr 24px; }
+      .faq summary .qn { display: none; }
+      .faq .ans { padding-left: 0; }
+    }
+
+    /* ── Services contact form grid ───────────────────────────── */
+    .svc-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .svc-form-grid > .full { grid-column: 1 / -1; }
+    .contact-form select {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      outline: 0;
+      padding: 8px 0;
+      font-family: var(--display);
+      font-size: 16px;
+      color: var(--bg);
+      appearance: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .contact-form select option { background: #0a0a0a; color: #f3f0e8; }
+    .contact-form select:focus { border-color: var(--accent); }
+    @media (max-width: 600px) { .svc-form-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body data-surface="bone">
+
+  <div class="grid-lines" aria-hidden="true"><span class="gl-mid"></span></div>
+
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="index.html"><span class="dot"></span>RDU / SERVICES</a>
+      <nav>
+        <a href="#offer" class="nav-link-hide">Offerings</a>
+        <a href="#process" class="nav-link-hide">Process</a>
+        <a href="#pricing" class="nav-link-hide">Pricing</a>
+        <a href="#faq" class="nav-link-hide">FAQ</a>
+        <a href="index.html" class="nav-cta">← Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <section class="svc-hero-band wrap" id="top">
+    <div class="pre">FREELANCE / AI &amp; WEB / EST. 2024</div>
+    <h1>I help small teams<br>ship <span class="accent">AI products</span><br><span class="stroke">that actually work.</span></h1>
+    <p class="lede">Custom websites, intelligent ML models, dashboards, and chatbots — built end-to-end by an AWS-certified ML engineer with a day job at a real AI company. No vendor chains, no jargon, no surprises.</p>
+    <div class="ctas">
+      <a href="#contact" class="primary">Free 30-min consult →</a>
+      <a href="#offer" class="ghost">See offerings ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">&lt;<span class="accent">24</span>h</div><div class="lbl">Reply time</div></div>
+      <div class="stat"><div class="num">$<span class="accent">0</span></div><div class="lbl">Initial consultation</div></div>
+      <div class="stat"><div class="num">5<span class="accent">+</span></div><div class="lbl">Cloud / ML certs</div></div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span><em>FREE 30-MIN CONSULT</em><span class="star">✦</span>FIXED-PRICE QUOTES<span class="star">✦</span>BUILT BY ONE ENGINEER, NOT AN AGENCY<span class="star">✦</span>AWS-CERTIFIED ML SPECIALTY<span class="star">✦</span>REPLY WITHIN 24H<span class="star">✦</span></span>
+      <span aria-hidden="true"><em>FREE 30-MIN CONSULT</em><span class="star">✦</span>FIXED-PRICE QUOTES<span class="star">✦</span>BUILT BY ONE ENGINEER, NOT AN AGENCY<span class="star">✦</span>AWS-CERTIFIED ML SPECIALTY<span class="star">✦</span>REPLY WITHIN 24H<span class="star">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ── § 01 Offerings ──────────────────────────────────────── -->
+  <section class="section" id="offer">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-num"><b>§ 01</b><br>OFFERINGS</div>
+        <h2 class="section-title">What I can<br>build for you.</h2>
+        <span class="section-cta" style="cursor:default;">5 SERVICES</span>
+      </div>
+
+      <div class="svc-list">
+
+        <a class="svc-list-row" href="#contact">
+          <div class="sl-num">— 01 / 05</div>
+          <div class="sl-main">
+            <h3>Custom Website</h3>
+            <div class="sl-meta">2–6 WEEKS · FROM CONCEPT TO LAUNCH</div>
+            <p class="sl-desc">A fast, mobile-first, professional site that represents your brand and turns visitors into customers. Hand-coded or modern stack — no bloated page builders, no monthly platform fees.</p>
+            <div class="sl-deliver"><b>YOU GET →</b> Design + build + deploy · domain &amp; hosting setup · SEO basics · contact / form integrations · 30-day post-launch fixes</div>
+          </div>
+          <div class="sl-arrow">↗</div>
+        </a>
+
+        <a class="svc-list-row" href="#contact">
+          <div class="sl-num">— 02 / 05</div>
+          <div class="sl-main">
+            <h3>Custom AI / ML Model</h3>
+            <div class="sl-meta">3–10 WEEKS · DATA → DEPLOYED MODEL</div>
+            <p class="sl-desc">Predictions, recommendations, classifiers, anomaly detection — built specifically on your data, not a generic off-the-shelf API. End-to-end: data prep, training, evaluation, deployment.</p>
+            <div class="sl-deliver"><b>YOU GET →</b> Trained model · evaluation report · deployment to AWS / GCP / your infra · monitoring setup · documentation a non-engineer can read</div>
+          </div>
+          <div class="sl-arrow">↗</div>
+        </a>
+
+        <a class="svc-list-row" href="#contact">
+          <div class="sl-num">— 03 / 05</div>
+          <div class="sl-main">
+            <h3>Data Analytics &amp; Dashboards</h3>
+            <div class="sl-meta">2–5 WEEKS · INSIGHT YOU CAN USE</div>
+            <p class="sl-desc">Understand what's actually happening in your business. Interactive dashboards drawn from your existing data — sales, ops, customer behavior — so the next decision isn't a guess.</p>
+            <div class="sl-deliver"><b>YOU GET →</b> Data audit &amp; cleanup · ETL pipeline · interactive dashboard (Streamlit / Plotly / Looker) · scheduled refreshes · handover walkthrough</div>
+          </div>
+          <div class="sl-arrow">↗</div>
+        </a>
+
+        <a class="svc-list-row" href="#contact">
+          <div class="sl-num">— 04 / 05</div>
+          <div class="sl-main">
+            <h3>AI Chatbot</h3>
+            <div class="sl-meta">3–6 WEEKS · LLM-POWERED, RAG-OPTIONAL</div>
+            <p class="sl-desc">A smart chatbot for customer support, lead capture, internal knowledge, or product onboarding — powered by current LLMs (OpenAI / Claude / open-source) and grounded in your content.</p>
+            <div class="sl-deliver"><b>YOU GET →</b> RAG pipeline over your docs · web / WhatsApp / Slack frontend · admin panel · usage analytics · monthly cost projection</div>
+          </div>
+          <div class="sl-arrow">↗</div>
+        </a>
+
+        <a class="svc-list-row" href="#contact">
+          <div class="sl-num">— 05 / 05</div>
+          <div class="sl-main">
+            <h3>Data &amp; AI Consulting</h3>
+            <div class="sl-meta">1–4 WEEKS · ROADMAP, NOT GUESSWORK</div>
+            <p class="sl-desc">Not sure where to start with AI? I'll help you identify real opportunities, avoid expensive mistakes, and ship a practical roadmap matched to your business size and budget.</p>
+            <div class="sl-deliver"><b>YOU GET →</b> Discovery interviews · opportunity audit · prioritized roadmap doc · cost / ROI estimates · vendor recommendations (or none)</div>
+          </div>
+          <div class="sl-arrow">↗</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── § 02 Process ────────────────────────────────────────── -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-num"><b>§ 02</b><br>HOW IT WORKS</div>
+        <h2 class="section-title">Four steps.<br>No surprises.</h2>
+        <span class="section-cta" style="cursor:default;">FIXED PRICE</span>
+      </div>
+      <div class="proc-grid">
+        <div class="proc-step">
+          <div class="pn">01</div>
+          <h4>Tell me about it</h4>
+          <p>Drop a note via the form, email, or LinkedIn. Plain language is fine — describe the problem, not a spec.</p>
+          <div class="pmeta">DAY 0</div>
+        </div>
+        <div class="proc-step">
+          <div class="pn">02</div>
+          <h4>Free 30-min consult</h4>
+          <p>We jump on a call, scope it together, agree a timeline and a fixed price. You leave with clarity even if you don't book.</p>
+          <div class="pmeta">DAY 1–3</div>
+        </div>
+        <div class="proc-step">
+          <div class="pn">03</div>
+          <h4>I build, you watch</h4>
+          <p>Weekly updates, working demos at every milestone. You stay in the loop without drowning in technical detail.</p>
+          <div class="pmeta">WEEK 1 → DELIVERY</div>
+        </div>
+        <div class="proc-step">
+          <div class="pn">04</div>
+          <h4>Ship + handover</h4>
+          <p>Deployed, documented, and yours. 30 days of free fixes after launch. Optional retainer if you want me on call.</p>
+          <div class="pmeta">DELIVERY + 30 DAYS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── § 03 Pricing ────────────────────────────────────────── -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-num"><b>§ 03</b><br>PRICING</div>
+        <h2 class="section-title">Honest about<br>cost up front.</h2>
+        <span class="section-cta" style="cursor:default;">QUOTE WITHIN 24H</span>
+      </div>
+      <div class="pricing-strip">
+        <div class="price">
+          <div class="ptag">— TIER 01 / STARTER</div>
+          <h4>One-off build</h4>
+          <div class="pwhen">For a single defined deliverable</div>
+          <ul>
+            <li>One service from the list</li>
+            <li>Fixed price, fixed timeline</li>
+            <li>2–6 week turnaround</li>
+            <li>30-day post-launch fixes</li>
+            <li>Source code &amp; docs handed over</li>
+          </ul>
+        </div>
+        <div class="price feature">
+          <div class="ptag">— TIER 02 / MOST POPULAR</div>
+          <h4>End-to-end project</h4>
+          <div class="pwhen">For something that touches multiple pieces</div>
+          <ul>
+            <li>Multi-stage build (e.g. data + model + dashboard)</li>
+            <li>Discovery + roadmap included</li>
+            <li>4–12 weeks, milestone-billed</li>
+            <li>60-day post-launch support</li>
+            <li>Optional handoff to your team</li>
+          </ul>
+        </div>
+        <div class="price">
+          <div class="ptag">— TIER 03 / RETAINER</div>
+          <h4>Fractional engineer</h4>
+          <div class="pwhen">For ongoing, evolving work</div>
+          <ul>
+            <li>Monthly hours commitment</li>
+            <li>Slack / email priority access</li>
+            <li>Continuous improvements</li>
+            <li>Pause or cancel any month</li>
+            <li>Best for active products</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── § 04 Why Me ─────────────────────────────────────────── -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-num"><b>§ 04</b><br>WHY ME</div>
+        <h2 class="section-title">Verifiable.<br>End-to-end.</h2>
+        <a href="index.html" class="section-cta">See portfolio ↗</a>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-tag">— 01 CREDENTIALS</div>
+          <h5>AWS Certified</h5>
+          <p>AWS Certified Machine Learning &amp; Data Analytics Specialty — both verifiable on Credly. Industry-recognized depth, not a one-day Udemy course.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-tag">— 02 EXPERIENCE</div>
+          <h5>6+ years shipping</h5>
+          <p>Telecom, e-commerce, legal tech, manufacturing, software. Indonesia, the UK, the UAE. I've seen most of the messes you'll throw at me.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-tag">— 03 SCOPE</div>
+          <h5>End-to-end</h5>
+          <p>Raw data → trained model → deployed product. One engineer, one stack. No vendor chain, no integration tax, no missed handoffs.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-tag">— 04 COMMUNICATION</div>
+          <h5>Plain language</h5>
+          <p>Weekly updates you can actually read. No jargon walls. If something's at risk, you hear about it the day I notice — not the day before launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── § 05 FAQ ────────────────────────────────────────────── -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-num"><b>§ 05</b><br>FAQ</div>
+        <h2 class="section-title">Questions<br>I get a lot.</h2>
+        <a href="#contact" class="section-cta">Ask anything ↓</a>
+      </div>
+      <div class="faq">
+        <details>
+          <summary><span class="qn">Q/01</span><span>How quickly can you start?</span><span class="plus">+</span></summary>
+          <div class="ans">Usually within 1–2 weeks of agreeing scope. I keep one freelance slot open at any time alongside my day job, so I never overcommit. If I can't take it on right away, I'll tell you on the consult call — not after we've signed.</div>
+        </details>
+        <details>
+          <summary><span class="qn">Q/02</span><span>Do you work nights and weekends?</span><span class="plus">+</span></summary>
+          <div class="ans">Yes — that's when freelance happens. I have a full-time job at Avrioc, and I treat freelance as a serious second commitment, not a hobby. You'll get steady weekly progress and regular updates.</div>
+        </details>
+        <details>
+          <summary><span class="qn">Q/03</span><span>What if I don't have data yet?</span><span class="plus">+</span></summary>
+          <div class="ans">Common starting point. We use the consult to figure out what data you'd need, where it might live, and whether collecting it is even worth it. Sometimes the right answer is "don't build the AI yet." I'll tell you that.</div>
+        </details>
+        <details>
+          <summary><span class="qn">Q/04</span><span>Do you sign NDAs?</span><span class="plus">+</span></summary>
+          <div class="ans">Of course. Send yours over before the consult and I'll review it. Standard mutual NDAs are signed within a day; anything more involved goes through a lawyer.</div>
+        </details>
+        <details>
+          <summary><span class="qn">Q/05</span><span>Who owns the code and the model?</span><span class="plus">+</span></summary>
+          <div class="ans">You do. By default, on full payment, all source code, model weights, and documentation transfer to you with no strings. The only thing I keep is the right to mention the project (anonymized if you prefer) in my portfolio.</div>
+        </details>
+        <details>
+          <summary><span class="qn">Q/06</span><span>Can you work with my existing team?</span><span class="plus">+</span></summary>
+          <div class="ans">Yes — I integrate with internal devs, data teams, or another agency regularly. Slack, Jira, GitHub, GitLab, whatever you use. I document so the next person picking it up isn't lost.</div>
+        </details>
+        <details>
+          <summary><span class="qn">Q/07</span><span>What's <em>not</em> a good fit?</span><span class="plus">+</span></summary>
+          <div class="ans">Anything that needs a 10-person team, anything where "AI" is being added because investors want to hear it, or anything illegal / surveillance-adjacent. I'll happily refer you elsewhere if I think that's the right move.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── § 06 Contact ────────────────────────────────────────── -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-num"><b>§ 06</b><br>BOOK A CONSULT</div>
+        <h2 class="section-title">Free 30-min<br>consultation.</h2>
+        <span class="section-cta" style="cursor:default;">REPLY &lt; 24H</span>
+      </div>
+      <div class="contact">
+        <div class="contact-left">
+          <h3>Tell me what you need.<br>I'll tell you if I can build it.</h3>
+          <p>Email or LinkedIn works too. The form on the right hits my inbox directly. I read every single one and reply within a day — usually faster.</p>
+          <div class="contact-channels">
+            <!-- TODO: add a dedicated business email here once one is set up -->
+            <a href="https://www.linkedin.com/in/utomorezadwi/" target="_blank"><span>LINKEDIN · /in/utomorezadwi</span><span class="arr">→</span></a>
+            <a href="index.html"><span>PORTFOLIO · ←</span><span class="arr">←</span></a>
+          </div>
+        </div>
+
+        <form class="contact-form" action="https://formspree.io/xdozpqqv" method="POST">
+          <input type="hidden" name="_subject" value="Services inquiry from website">
+          <div class="svc-form-grid">
+            <div>
+              <label for="sf-name">Your name *</label>
+              <input id="sf-name" type="text" name="name" required placeholder="Jane Smith">
+            </div>
+            <div>
+              <label for="sf-email">Email *</label>
+              <input id="sf-email" type="email" name="_replyto" required placeholder="you@company.com">
+            </div>
+            <div class="full">
+              <label for="sf-co">Company / org (optional)</label>
+              <input id="sf-co" type="text" name="company" placeholder="Acme Co.">
+            </div>
+            <div class="full">
+              <label for="sf-svc">Which service? *</label>
+              <select id="sf-svc" name="service" required>
+                <option value="" disabled selected>Pick one…</option>
+                <option>Custom Website</option>
+                <option>Custom AI / ML Model</option>
+                <option>Data Analytics &amp; Dashboards</option>
+                <option>AI Chatbot</option>
+                <option>Data &amp; AI Consulting</option>
+                <option>Multiple / not sure yet</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="sf-msg">What's the challenge? *</label>
+              <textarea id="sf-msg" name="message" required placeholder="A few sentences is enough. I'll follow up with questions."></textarea>
+            </div>
+          </div>
+          <button type="submit">Send Request →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="megafoot wrap">
+    <div class="foot-meta">
+      <span>© 2025 REZA DWI UTOMO · ALL RIGHTS RESERVED</span>
+      <span class="center">SERVICES PAGE</span>
+      <span class="right"><a href="#top">↑ BACK TO TOP</a></span>
+    </div>
+    <div class="bigname" aria-hidden="true">LET'S<span class="stroke">.</span>BUILD</div>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────── -->
+  <script>
+    (() => {
+      // Smooth scroll for in-page anchor links.
+      // Uses document.scrollingElement (the browser-standard API that always
+      // returns whichever element is actually scrolling the page, regardless of
+      // overflow/scroll-container quirks) so scrollTop assignments are reliable.
+      const animateScrollTo = (targetY, duration = 500) => {
+        const scrollEl = document.scrollingElement || document.documentElement;
+        const startY = scrollEl.scrollTop;
+        const diff = targetY - startY;
+        if (Math.abs(diff) < 1) return;
+        const start = performance.now();
+        const easeOutCubic = p => 1 - Math.pow(1 - p, 3);
+        const step = now => {
+          const p = Math.min(1, (now - start) / duration);
+          scrollEl.scrollTop = startY + diff * easeOutCubic(p);
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", e => {
+          const id = a.getAttribute("href");
+          if (!id || id.length < 2) return;
+          const t = document.querySelector(id);
+          if (!t) return;
+          e.preventDefault();
+          animateScrollTo(Math.max(0, t.offsetTop - 64));
+        });
+      });
+
+      // Reveal on scroll
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => { if (en.isIntersecting) en.target.classList.add("in"); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

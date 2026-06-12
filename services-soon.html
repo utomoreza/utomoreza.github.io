@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services — Coming Soon · Reza Dwi Utomo</title>
+  <meta name="description" content="Freelance AI & web services by Reza Dwi Utomo — coming soon.">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/portfolio.css">
+
+  <style>
+    .coming-soon-wrap {
+      min-height: calc(100vh - 64px); /* full viewport minus topnav */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px var(--gutter) 120px;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    .cs-pre {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .cs-pre::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .cs-heading {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(48px, 8vw, 128px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin: 0 0 40px;
+    }
+    .cs-heading .stroke {
+      -webkit-text-stroke: 2px var(--ink);
+      color: transparent;
+    }
+    .cs-heading .accent { color: var(--accent); }
+
+    .cs-body {
+      max-width: 52ch;
+      margin-bottom: 52px;
+    }
+    .cs-body p {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.6;
+      color: var(--ink-2);
+      margin: 0 0 16px;
+    }
+    .cs-body p:last-child { margin-bottom: 0; }
+
+    .cs-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .cs-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 180ms, color 180ms;
+    }
+    .cs-actions a.primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .cs-actions a.primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .cs-actions a.ghost:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .cs-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--rule);
+      margin: 56px 0;
+    }
+
+    .cs-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 480px;
+    }
+    .cs-channels a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 150ms, padding-left 150ms;
+    }
+    .cs-channels a:first-child { border-top: 1px solid var(--rule); }
+    .cs-channels a:hover {
+      color: var(--accent);
+      padding-left: 8px;
+    }
+    .cs-channels .arr { font-size: 16px; }
+
+    /* ── megafoot override: smaller text so it fits without clipping ── */
+    .megafoot .bigname {
+      font-size: clamp(36px, 17vw, 195px);
+    }
+  </style>
+</head>
+
+<body data-surface="bone">
+
+  <div class="grid-lines" aria-hidden="true"><span class="gl-mid"></span></div>
+
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="index.html"><span class="dot"></span>RDU / SERVICES</a>
+      <nav>
+        <a href="index.html" class="nav-cta">← Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Main content ────────────────────────────────────────── -->
+  <main class="coming-soon-wrap" id="top">
+
+    <p class="cs-pre">FREELANCE / AI &amp; WEB / EST. 2024</p>
+
+    <h1 class="cs-heading">
+      Thank you<br>for your<br><span class="accent">interest.</span>
+    </h1>
+
+    <div class="cs-body">
+      <p>
+        This page is coming soon. I'm currently putting the finishing touches on
+        my full services offering — custom websites, AI&nbsp;&amp;&nbsp;ML models,
+        data dashboards, and intelligent chatbots for small and medium businesses.
+      </p>
+      <p>
+        In the meantime, feel free to reach out directly via LinkedIn — I reply
+        within 24 hours and happy to discuss your project right now.
+      </p>
+    </div>
+
+    <div class="cs-actions">
+      <a href="https://www.linkedin.com/in/utomorezadwi/" target="_blank" class="primary">
+        Get in touch on LinkedIn →
+      </a>
+      <a href="index.html" class="ghost">
+        ← Back to portfolio
+      </a>
+    </div>
+
+    <div class="cs-divider"></div>
+
+    <div class="cs-channels">
+      <a href="https://www.linkedin.com/in/utomorezadwi/" target="_blank">
+        <span>LINKEDIN · /in/utomorezadwi</span><span class="arr">→</span>
+      </a>
+      <a href="https://github.com/utomoreza" target="_blank">
+        <span>GITHUB · @utomoreza</span><span class="arr">→</span>
+      </a>
+      <a href="https://medium.com/@utomorezadwi" target="_blank">
+        <span>MEDIUM · @utomorezadwi</span><span class="arr">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="megafoot wrap">
+    <div class="foot-meta">
+      <span>© 2025 REZA DWI UTOMO · ALL RIGHTS RESERVED</span>
+      <span class="center">COMING SOON</span>
+      <span class="right"><a href="#top">↑ BACK TO TOP</a></span>
+    </div>
+    <div class="bigname" aria-hidden="true">LET'S<span class="stroke">.</span>BUILD</div>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────── -->
+  <script>
+    (() => {
+      const animateScrollTo = (targetY, duration = 500) => {
+        const scrollEl = document.scrollingElement || document.documentElement;
+        const startY = scrollEl.scrollTop;
+        const diff = targetY - startY;
+        if (Math.abs(diff) < 1) return;
+        const start = performance.now();
+        const easeOutCubic = p => 1 - Math.pow(1 - p, 3);
+        const step = now => {
+          const p = Math.min(1, (now - start) / duration);
+          scrollEl.scrollTop = startY + diff * easeOutCubic(p);
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", e => {
+          const id = a.getAttribute("href");
+          if (!id || id.length < 2) return;
+          const t = document.querySelector(id);
+          if (!t) return;
+          e.preventDefault();
+          animateScrollTo(Math.max(0, t.offsetTop - 64));
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,917 @@
+/* ── custom.css — Design refresh for index.html ── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─────────────────── HERO ─────────────────── */
+.hero-greeting {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 3.4rem;
+    font-weight: 300;
+    color: #a5b4fc;
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+}
+
+#lead {
+    background: #0f172a; /* Vanta fallback */
+}
+
+#lead-overlay {
+    /* Let Vanta canvas show through; just a subtle darkener for text readability */
+    background: rgba(15, 23, 42, 0.3) !important;
+    z-index: 0 !important;
+}
+
+#lead-content {
+    z-index: 10;
+}
+
+#lead-content h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 4.5rem !important;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+}
+
+#lead-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #e0e7ff;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    font-weight: 300;
+    color: #a5b4fc;
+    animation: blink-cursor 0.75s step-end infinite;
+    margin-left: 1px;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+#lead-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.btn-rounded-white {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.3s ease !important;
+}
+
+.btn-rounded-white:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ─────────────────── HEADINGS ─────────────────── */
+h2.heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 2.4rem;
+}
+
+h2.heading:after {
+    width: 44px;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #a78bfa);
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+/* ─────────────────── ABOUT ─────────────────── */
+#about .section-badge {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+/* ─────────────────── EXPERIENCE TIMELINE ─────────────────── */
+.vtimeline-icon {
+    box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.2),
+                0 4px 16px rgba(99, 102, 241, 0.35);
+}
+
+.vtimeline-content {
+    border-radius: 10px !important;
+    border-left: 3px solid #6366f1 !important;
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.vtimeline-content:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    transform: translateX(4px);
+}
+
+.vtimeline-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600 !important;
+}
+
+.vtimeline-content h4 {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ─────────────────── EDUCATION ─────────────────── */
+#education {
+    padding: 50px 30px 20px;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 0;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.education-block {
+    max-width: none !important;
+    margin: 0 0 24px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    border-left: 4px solid #6366f1 !important;
+    background: #fafafa;
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.education-block:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-3px);
+}
+
+.education-block h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700 !important;
+}
+
+/* ─────────────────── PROJECTS (scoped) ─────────────────── */
+#projects .project {
+    border-radius: 14px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    max-width: none !important;
+    margin: 0 !important;
+    float: none !important;
+    overflow: visible !important;
+}
+
+#projects .project:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.14) !important;
+}
+
+#projects .project-info {
+    position: relative !important;
+    margin-left: 0 !important;
+    padding: 28px !important;
+    top: auto !important;
+    transform: none !important;
+}
+
+#projects .project-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700 !important;
+}
+
+#projects .project-info > a:not(.btn-more-projects) {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #6366f1;
+    border: 2px solid #6366f1;
+    padding: 8px 22px;
+    border-radius: 22px;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+#projects .project-info > a:not(.btn-more-projects):hover {
+    background: #6366f1;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* ─────────────────── BLOG ARTICLES ─────────────────── */
+#blogs {
+    padding-top: 0 !important;
+}
+
+#blogs .row {
+    flex-direction: column;
+    align-items: center;
+}
+
+#blogs #jsonContent {
+    /* flexbox so last partial row auto-centers */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+#blogs .project {
+    border-radius: 14px !important;
+    /* flex basis: 3 per row, accounting for 2 gaps of 20px in a 100% container */
+    flex: 0 1 calc(33.33% - 14px);
+    min-width: 260px;
+    max-width: none !important;
+    margin: 0 !important;
+    float: none !important;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+#blogs .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.12) !important;
+}
+
+#blogs .project-image {
+    float: none !important;
+    width: 100% !important;
+}
+
+#blogs .project-image img {
+    width: 100% !important;
+    height: 175px !important;
+    object-fit: cover !important;
+    display: block;
+    /* shown when the thumbnail URL is empty/broken */
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+}
+
+#blogs .project-info {
+    position: relative !important;
+    margin-left: 0 !important;
+    padding: 20px !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#blogs .project-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700 !important;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+#blogs .project-info a {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #6366f1;
+    border: 2px solid #6366f1;
+    padding: 6px 18px;
+    border-radius: 22px;
+    transition: all 0.2s;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+#blogs .project-info a:hover {
+    background: #6366f1;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ─────────────────── CERTIFICATES ─────────────────── */
+.optional-section-block {
+    border-radius: 12px !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.optional-section-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1) !important;
+}
+
+.optional-section-block h3 {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ─────────────────── SKILLS ─────────────────── */
+#skills {
+    background: #f8fafc;
+}
+
+#skills ul {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px !important;
+    max-width: 960px;
+    padding: 0 !important;
+}
+
+#skills li {
+    display: inline-flex !important;
+    align-items: center;
+    border-radius: 22px !important;
+    font-size: 0.88rem !important;
+    padding: 7px 18px !important;
+    background: #fff !important;
+    border: 1.5px solid #c7d2fe !important;
+    color: #4f46e5 !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.22s ease !important;
+    margin: 0 !important;
+    cursor: default;
+}
+
+#skills li:hover {
+    background: #6366f1 !important;
+    color: #fff !important;
+    border-color: #6366f1 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+}
+
+/* ─────────────────── HIRE-ME TEASER ─────────────────── */
+#hire-me {
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%) !important;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* ─────────────────── CONTACT ─────────────────── */
+#contact {
+    background: linear-gradient(135deg, #1e293b 0%, #312e81 100%) !important;
+}
+
+#contact-form button {
+    background: #fff !important;
+    color: #6366f1 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    border-radius: 30px !important;
+    padding: 10px 32px !important;
+    transition: all 0.3s ease !important;
+}
+
+#contact-form button:hover {
+    background: #6366f1 !important;
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45) !important;
+    transform: translateY(-2px);
+}
+
+/* ─────────────────── FOOTER ─────────────────── */
+footer {
+    background: #0f172a !important;
+    padding: 40px 0;
+}
+
+footer .copyright p,
+footer .social a {
+    color: #64748b !important;
+}
+
+footer .social a:hover {
+    color: #818cf8 !important;
+}
+
+footer .top span {
+    border-color: #334155 !important;
+}
+
+footer .top i {
+    color: #64748b !important;
+}
+
+/* ─────────────────── SHARED BUTTONS ─────────────────── */
+.btn-more-projects {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    border-radius: 22px !important;
+    transition: all 0.25s ease !important;
+}
+
+/* ─────────────────── EXPERIENCE MODAL ─────────────────── */
+.exp-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+}
+
+.exp-modal-overlay.is-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.exp-modal {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px 44px 36px;
+    position: relative;
+    transform: translateY(18px) scale(0.97);
+    transition: transform 0.22s ease;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.28);
+}
+
+.exp-modal-overlay.is-visible .exp-modal {
+    transform: translateY(0) scale(1);
+}
+
+.exp-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    width: 34px;
+    height: 34px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 0.9rem;
+    transition: all 0.18s;
+    line-height: 1;
+}
+
+.exp-modal-close:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.exp-modal-inner h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin: 0 0 6px;
+    display: block;
+}
+
+.exp-modal-inner h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #6366f1;
+    margin: 0 0 4px;
+}
+
+.exp-modal-inner .card-date {
+    margin-bottom: 20px;
+}
+
+.exp-modal-body {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 18px;
+    margin-top: 16px;
+    font-size: 1rem;
+    color: #374054;
+    line-height: 1.8;
+}
+
+.exp-modal-body li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.exp-modal-body p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* ─────────────────── EXPERIENCE GRID ─────────────────── */
+#experience-timeline {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    max-width: 1060px !important;
+    padding: 0 15px !important;
+}
+
+#experience-timeline::before,
+#experience-timeline::after {
+    display: none !important;
+}
+
+.vtimeline-point {
+    margin-bottom: 0 !important;
+}
+
+.vtimeline-icon,
+.vtimeline-date {
+    display: none !important;
+}
+
+.vtimeline-content {
+    margin-left: 0 !important;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card-date {
+    display: block;
+    font-size: 0.78rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-top: 4px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.01em;
+}
+
+/* Kill Bootstrap 3 clearfix pseudo-elements that become ghost grid cells */
+#projects .row::before,
+#projects .row::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* ─────────────────── PROJECTS GRID ─────────────────── */
+#projects .row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 1060px !important;
+    /* cancel Bootstrap's negative row margins that misalign the grid */
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* ─────────────────── EXPERIENCE CARD CLICK HINT ─────────────────── */
+.vtimeline-content {
+    cursor: pointer;
+}
+
+.vtimeline-content:hover {
+    border-color: #6366f1 !important;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15) !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Last card centered when total is odd */
+#experience-timeline .vtimeline-point:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 10px);
+    justify-self: center;
+    width: 100%;
+}
+
+.card-expand-icon {
+    font-size: 0.85rem;
+    color: #c7d2fe;
+    margin-top: 4px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.collapsible-header:hover .card-expand-icon {
+    color: #6366f1;
+}
+
+/* ─────────────────── CERTIFICATES GRID ─────────────────── */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1060px;
+    margin: 0 auto 30px;
+    padding: 0 15px;
+}
+
+.optional-section-block {
+    margin: 0 !important;
+    text-align: left !important;
+    align-self: start;
+}
+
+/* ─────────────────── COLLAPSIBLE CARDS ─────────────────── */
+.collapsible-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 4px 0 8px;
+    user-select: none;
+}
+
+.collapsible-header:hover .collapse-chevron {
+    color: #6366f1;
+}
+
+.collapse-titles {
+    flex: 1;
+}
+
+.collapse-chevron {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 6px;
+    margin-left: 12px;
+    transition: transform 0.25s ease, color 0.2s;
+    flex-shrink: 0;
+}
+
+.collapse-chevron.is-open {
+    transform: rotate(0deg);
+}
+
+.collapse-chevron.is-closed {
+    transform: rotate(-90deg);
+}
+
+/* ─────────────────── FLOATING PILL NAVBAR ─────────────────── */
+@keyframes floatNavIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 769px) {
+    header {
+        position: fixed !important;
+        top: 20px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        animation: floatNavIn 0.55s ease forwards !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    header.sticky {
+        top: 20px !important;
+    }
+
+    header ul#menu {
+        display: inline-flex !important;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.88) !important;
+        border-radius: 50px !important;
+        border-bottom-left-radius: 50px !important;
+        border-bottom-right-radius: 50px !important;
+        padding: 6px 18px !important;
+        box-shadow: 0 4px 28px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.55) !important;
+        white-space: nowrap;
+    }
+
+    header ul#menu li {
+        display: inline-flex !important;
+    }
+
+    header ul#menu a {
+        padding: 5px 14px !important;
+        border-radius: 30px !important;
+        font-size: 0.97rem !important;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500 !important;
+    }
+}
+
+/* Services nav CTA button */
+.nav-cta {
+    background: #1e293b !important;
+    color: #fff !important;
+    border-radius: 30px !important;
+    padding: 5px 16px !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    margin-left: 4px;
+    display: inline-block !important;
+    transition: background 0.2s !important;
+}
+
+.nav-cta:hover,
+.nav-cta:focus {
+    background: #334155 !important;
+    color: #fff !important;
+}
+
+/* ─────────────────── SECTION BADGE LABELS ─────────────────── */
+.section-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6366f1;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* ─────────────────── SECTION FLEX HEADERS ─────────────────── */
+
+/* Used by blog, experience, projects, certificates */
+.section-flex-header-wrap {
+    max-width: 1060px;
+    margin: 0 auto 20px;
+    padding: 0 15px;
+}
+
+/* Blog gets its own top padding since the section padding is overridden */
+.blog-section-header {
+    max-width: 1060px;
+    margin: 0 auto 20px;
+    padding: 50px 15px 0;
+}
+
+.section-flex-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn-viewall {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #6366f1;
+    border: 2px solid #6366f1;
+    border-radius: 22px;
+    padding: 7px 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-viewall:hover {
+    background: #6366f1;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Certificates optional-section already has its own padding; suppress extra top gap */
+#certificates .section-flex-header-wrap {
+    margin-bottom: 28px;
+}
+
+/* ─────────────────── TEXT SIZE INCREASES ─────────────────── */
+.vtimeline-content li,
+.vtimeline-content p {
+    font-size: 0.97rem;
+    line-height: 1.82;
+}
+
+#projects .project-info p,
+#projects .project-info h3 {
+    font-size: 1rem;
+}
+
+.optional-section-block p,
+.optional-section-block h4,
+.optional-section-block h5 {
+    font-size: 0.97rem;
+    line-height: 1.8;
+}
+
+.education-block p,
+.education-block span {
+    font-size: 0.97rem;
+}
+
+#about p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+/* ─────────────────── SCROLL ENTRANCE ANIMATIONS ─────────────────── */
+.anim-out {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.anim-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─────────────────── RESPONSIVE ─────────────────── */
+@media (max-width: 992px) {
+    #lead-content h1 {
+        font-size: 3rem !important;
+    }
+
+    #projects .row {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #blogs .project {
+        flex-basis: calc(50% - 10px);
+    }
+
+    #education {
+        padding: 50px 20px 20px;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-greeting {
+        font-size: 2.4rem;
+    }
+
+    #lead-content h1 {
+        font-size: 2.2rem !important;
+    }
+    #lead-content h3 {
+        font-size: 1.1rem;
+    }
+
+    #experience-timeline {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Remove last-odd centering on single column */
+    #experience-timeline .vtimeline-point:last-child:nth-child(odd) {
+        grid-column: auto;
+        max-width: none;
+        justify-self: auto;
+    }
+
+    #projects .row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #blogs .project {
+        flex-basis: 100%;
+    }
+
+    .exp-modal {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-greeting {
+        font-size: 2rem;
+    }
+
+    #lead-content h1 {
+        font-size: 1.8rem !important;
+    }
+}
